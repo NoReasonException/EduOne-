@@ -3,7 +3,6 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
 <title>Σύνδεση </title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet"> 

@@ -3,7 +3,6 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
 <title>Αρχική σελίδα</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
@@ -13,8 +12,7 @@
 <body>
 		<div id="PresentationBackgroundLayer">
 			<div id="PresentationTextLayer">
-				EduOne.org
-				<div id="PresentationMotto">Προπύργιο Αντικειμενικότητας </div>
+				Welcome to the EduOne.org
 			</div>
 		</div>
 
@@ -49,18 +47,15 @@
 	</div>
 	<?php
 		$config = parse_ini_file("./config/ArticleReader.ini");
-		$ArticleID=NULL;
-
 		$connectionObject = new mysqli($config['ip_address'],$config['username'],$config['password']);
-
-		$result = mysqli_query($connectionObject,'select * from news_section.articles order by id desc limit 4; ');
+		$result = mysqli_query($connectionObject,'select * from news_section.articles; ');
 		if(mysqli_num_rows($result) > 0 ){
 
 			while($row = mysqli_fetch_assoc($result)){
 				echo '<div id="ArticleBackgroundLayer">';
 				echo '<div id="ArticleTitleLayer">'.$row['title'].'</div>';
 				echo '<div id="ArticleMainBodyLayer">'.$row['mainbody'].' .... </div><br>';
-				echo '<div id="ArticleReadMoreLayer"><a href="./Articles/Article.php?ArticleID='.$row['id'].' ">Διαβάστε Περρισσότερα </a></div>';
+				echo '<div id="ArticleReadMoreLayer"><a href="./Articles/Article.php?ArticleID='.$row['id'].' ">Διαβάστε Περρισσότερα </div>';
 				echo '</div>';
 			}
 

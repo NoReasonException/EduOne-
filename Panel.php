@@ -3,7 +3,6 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
 <title>Κεντρική Διοίκηση</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
@@ -23,17 +22,15 @@
 	}
 	if($_SESSION['success_NewArticle']=='OK'){
 		echo '<script > window.alert("Το Άρθρο δημοσιεύτηκε με επιτυχία ");</script>';
-		$_SESSION['success_NewArticle'] = null;
+		$_SESSION['success_NewArticle'] = 0;
 	}
 	else if($_SESSION['success_NewArticle']=="ERR"){
 		echo '<script>window.alert("Κάτι πήγε στράβα κάτα την δημοσίευση , παρακαλώ επικοινωνήστε με τον διαχειριστή του συστήματος");</script>';
 	}
 ?>
-
 		<div id="PresentationBackgroundLayer">
 			<div id="PresentationTextLayer">
-				EduOne.org
-				<div id="PresentationMotto">Προπύργιο Αντικειμενικότητας </div>
+				Welcome to the EduOne.org
 			</div>
 		</div>
 
@@ -41,38 +38,40 @@
 		<ul  id ="MenuElementLayer">
 			<li>
 				<a href="index.php">
-					<span>Αρχική Σελίδα</span>
+					<span>Αρχική Σελίδα<span>
 				</a>
 			</li>
 			<li>
 				<a href="news.php">
-					<span>Ενημέρωση/Εκπαιδευτικά</span>
+					<span>Ενημέρωση/Εκπαιδευτικά<span>
 				</a>
 			</li>
 			<li>
 				<a href="Papers.php">
-					<span>Εργασίες</span>
+					<span>Εργασίες<span>
 				</a>
 			</li>
 			<li>
 				<a href="culture.php">
-					<span>Πολιτισμός</span>
+					<span>Πολιτισμός<span>
 				</a>
 			</li>
 						<li>
 				<a href="whoweare.php">
-					<span>Ποιοί είμαστε</span>
+					<span>Ποιοί είμαστε<span>
 				</a>
 			</li>
 		</ul>
 	</div>
 	<h1>Κεντρική διοίκηση του EduOne.org</h1>
+	<div id="UserLogs">
 	<h3>
 		<?php echo '<div id="UserLogs">Χρήστης :' , $_SESSION['username']; ?>
 			<img src="../img/panel/online.png"  title="Συνδεδεμένος">
 				<form method="post" action="Leave.php"><button type="submit">Αποσύνδεση χρήστη</button></form>
 	</h3>
 	</div>
+	<div id="OnlineUsers">
 		<?php
 			$config = parse_ini_file('./config/CristinaBot.ini');
 			$connectionObject = new mysqli($config['ip_address'],$config['username'],$config['password']);
@@ -100,6 +99,7 @@
 		?>
 
 
+	</div>
 
 	<div id="MainMenu">
 		Κεντρικό Μενού:Συντομέυσεις και λοιπά ;)
